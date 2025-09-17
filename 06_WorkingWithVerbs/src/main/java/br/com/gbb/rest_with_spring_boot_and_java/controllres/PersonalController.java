@@ -27,9 +27,4 @@ public class PersonalController {
     public Person findById(@PathVariable("id") Long id) {
         return service.findById(id);
     }
-
-
-
-
-
 }
