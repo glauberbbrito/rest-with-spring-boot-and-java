@@ -1,11 +1,11 @@
 package br.com.gbb.rest_with_spring_boot_and_java.request.converters;
 
-import br.com.gbb.rest_with_spring_boot_and_java.exception.UnsuportedMathOperationException;
+import br.com.gbb.rest_with_spring_boot_and_java.exception.ResourceNotFoundException;
 
 public class NumberConverter {
 
-    public static Double convertToDouble(String strNumber) throws UnsuportedMathOperationException {
-        if (strNumber == null || strNumber.isEmpty()) throw new UnsuportedMathOperationException("Please set a numeric value");
+    public static Double convertToDouble(String strNumber) throws ResourceNotFoundException {
+        if (strNumber == null || strNumber.isEmpty()) throw new ResourceNotFoundException("Please set a numeric value");
         String number = strNumber.replace(",",".");
 
         return Double.parseDouble(number);
