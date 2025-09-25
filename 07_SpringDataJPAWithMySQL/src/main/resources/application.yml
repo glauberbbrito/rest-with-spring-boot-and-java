@@ -6,7 +6,7 @@ spring:
     name: rest-with-spring-boot-and-java
 
   jpa:
-    show-sql: true
+    show-sql: false
     open-in-view: true
     hibernate:
       ddl-auto: update
