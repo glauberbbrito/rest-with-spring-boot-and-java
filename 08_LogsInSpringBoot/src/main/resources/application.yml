@@ -1,0 +1,30 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: rest-with-spring-boot-and-java
+
+  jpa:
+    show-sql: false
+    open-in-view: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+#        dialect: org.hibernate.dialect.PostgreSQLDialect
+
+
+  datasource:
+    url: jdbc:postgresql://localhost:5432/springboot_dev?useTimezone=true&serverTimezone=UTC
+    username: springboot_user_adm
+    password: springboot@adm
+    driver-class-name: org.postgresql.Driver
+    hikari:
+      connection-timeout: 20000 #maximum number of milliseconds that a client will wait for a connection
+      minimum-idle: 2 #minimum number of idle connections maintained by HikariCP in a connection pool
+      maximum-pool-size: 4 #maximum pool size
+      idle-timeout: 20000 #maximum idle time for connection
+      max-lifetime: 600000 # maximum lifetime in milliseconds of a connection in the pool after it is closed.
+      connection-test-query: SELECT 1
