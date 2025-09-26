@@ -3,18 +3,18 @@ package br.com.gbb.rest_with_spring_boot_and_java.services;
 import br.com.gbb.rest_with_spring_boot_and_java.exception.ResourceNotFoundException;
 import br.com.gbb.rest_with_spring_boot_and_java.model.Person;
 import br.com.gbb.rest_with_spring_boot_and_java.repository.PersonRepository;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.concurrent.atomic.AtomicLong;
-import java.util.logging.Logger;
+
 
 @Service
 public class PersonServices {
 
-    private final AtomicLong counter = new AtomicLong();
-    private final Logger logger = Logger.getLogger(PersonServices.class.getName());
+    private final Logger logger = LoggerFactory.getLogger(PersonServices.class.getName());
 
     @Autowired
     private PersonRepository repository;

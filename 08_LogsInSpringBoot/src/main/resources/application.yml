@@ -15,7 +15,6 @@ spring:
         format_sql: true
 #        dialect: org.hibernate.dialect.PostgreSQLDialect
 
-
   datasource:
     url: jdbc:postgresql://localhost:5432/springboot_dev?useTimezone=true&serverTimezone=UTC
     username: springboot_user_adm
@@ -28,3 +27,8 @@ spring:
       idle-timeout: 20000 #maximum idle time for connection
       max-lifetime: 600000 # maximum lifetime in milliseconds of a connection in the pool after it is closed.
       connection-test-query: SELECT 1
+
+logging:
+  level:
+    #root: WARN   #difines the default log level for the entire application.
+    br.com.gbb: DEBUG #Overrides the log level for a specific package (br.com.gbb) and its sub-packages.
