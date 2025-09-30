@@ -1,19 +1,19 @@
-package br.com.gbb.rest_with_spring_boot_and_java.data.dto;
-
-import jakarta.persistence.*;
+package br.com.gbb.rest_with_spring_boot_and_java.data.dto.v2;
 
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.Objects;
 
-public class PersonDTO implements Serializable {
+public class PersonDTOV2 implements Serializable {
     private static final long serialVersionUID = 1L;
     private Long id;
     private String firstName;
     private String lastName;
     private String address;
     private String gender;
+    private LocalDate birthDay;
 
-    public PersonDTO() {}
+    public PersonDTOV2() {}
 
     public Long getId() {
         return id;
@@ -51,14 +51,18 @@ public class PersonDTO implements Serializable {
 
     public void setAddress(String address) { this.address = address; }
 
+    public LocalDate getBirthDay() { return birthDay; }
+
+    public void setBirthDay(LocalDate birthDay) { this.birthDay = birthDay; }
+
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof PersonDTO person)) return false;
-        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName()) && Objects.equals(getGender(), person.getGender()) && Objects.equals(getAddress(), person.getAddress());
+        if (!(o instanceof PersonDTOV2 that)) return false;
+        return Objects.equals(getId(), that.getId()) && Objects.equals(getFirstName(), that.getFirstName()) && Objects.equals(getLastName(), that.getLastName()) && Objects.equals(getAddress(), that.getAddress()) && Objects.equals(getGender(), that.getGender()) && Objects.equals(getBirthDay(), that.getBirthDay());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getGender(), getAddress());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender(), getBirthDay());
     }
 }

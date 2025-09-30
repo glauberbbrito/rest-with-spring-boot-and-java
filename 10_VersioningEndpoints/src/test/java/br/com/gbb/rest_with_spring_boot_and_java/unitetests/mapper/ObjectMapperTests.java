@@ -1,6 +1,6 @@
 package br.com.gbb.rest_with_spring_boot_and_java.unitetests.mapper;
 
-import br.com.gbb.rest_with_spring_boot_and_java.data.dto.PersonDTO;
+import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
 import br.com.gbb.rest_with_spring_boot_and_java.model.Person;
 import br.com.gbb.rest_with_spring_boot_and_java.unitetests.mapper.mocks.MockPerson;
 import org.junit.jupiter.api.BeforeEach;

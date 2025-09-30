@@ -1,7 +1,9 @@
 package br.com.gbb.rest_with_spring_boot_and_java.services;
 
-import br.com.gbb.rest_with_spring_boot_and_java.data.dto.PersonDTO;
+import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
+import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v2.PersonDTOV2;
 import br.com.gbb.rest_with_spring_boot_and_java.exception.ResourceNotFoundException;
+import br.com.gbb.rest_with_spring_boot_and_java.mapper.custom.PersonMapper;
 import br.com.gbb.rest_with_spring_boot_and_java.model.Person;
 import br.com.gbb.rest_with_spring_boot_and_java.repository.PersonRepository;
 import org.slf4j.Logger;
@@ -23,6 +25,9 @@ public class PersonServices {
     @Autowired
     private PersonRepository repository;
 
+    @Autowired
+    private PersonMapper personMapper = new PersonMapper();
+
     public List<PersonDTO> findAll(){
         logger.info("Find All People!");
         return parseListObjects(repository.findAll(), PersonDTO.class);
@@ -40,6 +45,14 @@ public class PersonServices {
         repository.save(entity);
         logger.info("Person created: " + person.getId());
         return parseObject(entity, PersonDTO.class);
+    }
+
+    public PersonDTOV2 createV2(PersonDTOV2 dto){
+        logger.info("Creating one Person ");
+        Person entity = personMapper.mapToEntity(dto);
+        repository.save(entity);
+        logger.info("Person created: " + dto.getId());
+        return personMapper.mapToDTO(entity);
     }
 
     public PersonDTO update(PersonDTO  person){

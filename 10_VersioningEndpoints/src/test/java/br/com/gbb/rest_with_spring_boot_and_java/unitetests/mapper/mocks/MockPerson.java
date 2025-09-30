@@ -1,6 +1,6 @@
 package br.com.gbb.rest_with_spring_boot_and_java.unitetests.mapper.mocks;
 
-import br.com.gbb.rest_with_spring_boot_and_java.data.dto.PersonDTO;
+import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
 import br.com.gbb.rest_with_spring_boot_and_java.model.Person;
 
 import java.util.ArrayList;
@@ -18,7 +18,7 @@ public class MockPerson {
     }
     
     public List<Person> mockEntityList() {
-        List<Person> persons = new ArrayList<Person>();
+        List<Person> persons = new ArrayList<>();
         for (int i = 0; i < 14; i++) {
             persons.add(mockEntity(i));
         }

@@ -1,6 +1,7 @@
 package br.com.gbb.rest_with_spring_boot_and_java.controllres;
 
-import br.com.gbb.rest_with_spring_boot_and_java.data.dto.PersonDTO;
+import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
+import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v2.PersonDTOV2;
 import br.com.gbb.rest_with_spring_boot_and_java.services.PersonServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -29,6 +30,11 @@ public class PersonalController {
     @PostMapping(value = "/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public PersonDTO create(@RequestBody PersonDTO person) {
         return service.create(person);
+    }
+
+    @PostMapping(value = "/v2/create", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public PersonDTOV2 create(@RequestBody PersonDTOV2 person) {
+        return service.createV2(person);
     }
 
     @PutMapping(value = "/update", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
