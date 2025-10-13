@@ -30,27 +30,27 @@ public class PersonalController {
         return service.findById(id);
     }
 
-    @PostMapping(value = "/create", consumes = {MediaType.APPLICATION_JSON_VALUE,
-                                                  MediaType.APPLICATION_XML_VALUE,
-                                                  MediaType.APPLICATION_YAML_VALUE},
-                                      produces = {MediaType.APPLICATION_JSON_VALUE,
-                                                  MediaType.APPLICATION_XML_VALUE,
-                                                  MediaType.APPLICATION_YAML_VALUE})
+    @PostMapping(consumes = {MediaType.APPLICATION_JSON_VALUE,
+                              MediaType.APPLICATION_XML_VALUE,
+                              MediaType.APPLICATION_YAML_VALUE},
+                  produces = {MediaType.APPLICATION_JSON_VALUE,
+                              MediaType.APPLICATION_XML_VALUE,
+                              MediaType.APPLICATION_YAML_VALUE})
     public PersonDTO create(@RequestBody PersonDTO person) {
         return service.create(person);
     }
 
-    @PutMapping(value = "/update", consumes = {MediaType.APPLICATION_JSON_VALUE,
-                                                 MediaType.APPLICATION_XML_VALUE,
-                                                 MediaType.APPLICATION_YAML_VALUE},
-                                     produces = {MediaType.APPLICATION_JSON_VALUE,
-                                                 MediaType.APPLICATION_XML_VALUE,
-                                                 MediaType.APPLICATION_YAML_VALUE})
+    @PutMapping( consumes = {MediaType.APPLICATION_JSON_VALUE,
+                             MediaType.APPLICATION_XML_VALUE,
+                             MediaType.APPLICATION_YAML_VALUE},
+                 produces = {MediaType.APPLICATION_JSON_VALUE,
+                             MediaType.APPLICATION_XML_VALUE,
+                             MediaType.APPLICATION_YAML_VALUE})
     public PersonDTO update(@RequestBody PersonDTO person) {
         return service.update(person);
     }
 
-    @DeleteMapping(value = "/delete/{id}")
+    @DeleteMapping(value = "/{id}")
     public ResponseEntity<?> delete(@PathVariable("id") Long id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
