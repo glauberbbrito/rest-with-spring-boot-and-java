@@ -3,6 +3,7 @@ package br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1;
 import org.springframework.hateoas.RepresentationModel;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class PersonDTO extends RepresentationModel<PersonDTO> implements Serializable {
@@ -12,6 +13,7 @@ public class PersonDTO extends RepresentationModel<PersonDTO> implements Seriali
     private String lastName;
     private String address;
     private String gender;
+    private LocalDateTime registrationDate;
 
     public PersonDTO() {}
 
@@ -51,14 +53,19 @@ public class PersonDTO extends RepresentationModel<PersonDTO> implements Seriali
 
     public void setAddress(String address) { this.address = address; }
 
+    public LocalDateTime getRegistrationDate() {return registrationDate; }
+
+    public void setRegistrationDate(LocalDateTime registrationDate) { this.registrationDate = registrationDate;}
+
     @Override
     public boolean equals(Object o) {
-        if (!(o instanceof PersonDTO person)) return false;
-        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName()) && Objects.equals(getGender(), person.getGender()) && Objects.equals(getAddress(), person.getAddress());
+        if (!(o instanceof PersonDTO dto)) return false;
+        if (!super.equals(o)) return false;
+        return Objects.equals(getId(), dto.getId()) && Objects.equals(getFirstName(), dto.getFirstName()) && Objects.equals(getLastName(), dto.getLastName()) && Objects.equals(getAddress(), dto.getAddress()) && Objects.equals(getGender(), dto.getGender()) && Objects.equals(getRegistrationDate(), dto.getRegistrationDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getGender(), getAddress());
+        return Objects.hash(super.hashCode(), getId(), getFirstName(), getLastName(), getAddress(), getGender(), getRegistrationDate());
     }
 }

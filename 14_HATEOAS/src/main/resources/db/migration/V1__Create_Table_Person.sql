@@ -4,6 +4,7 @@ CREATE TABLE public.person (
    last_name varchar(80) NOT NULL,
    address varchar(100) NOT NULL,
    gender varchar(6) NOT NULL,
+   registrationdate timestamp not null,
    CONSTRAINT person_pkey PRIMARY KEY (id)
 );
 
@@ -12,5 +13,6 @@ COMMENT ON COLUMN person.first_name IS 'Primeiro nome';
 COMMENT ON COLUMN person.last_name IS 'Último nome';
 COMMENT ON COLUMN person.gender IS 'Genero';
 COMMENT ON COLUMN person.address IS 'Endereço';
+COMMENT ON COLUMN person.registrationdate IS 'Data de cadastro do registro na base de dados';
 
 CREATE INDEX idx_person_firstname ON person (first_name);

@@ -16,6 +16,7 @@ import static br.com.gbb.rest_with_spring_boot_and_java.mapper.ObjectMapper.pars
 import static br.com.gbb.rest_with_spring_boot_and_java.mapper.ObjectMapper.parseObject;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 
@@ -49,6 +50,7 @@ public class PersonServices {
         if (person == null) throw new RequiredObjectIsNullException();
 
         Person entity = parseObject(person, Person.class);
+        entity.setRegistrationDate(LocalDateTime.now());
         repository.save(entity);
         logger.info("Person created: " + person.getId());
         PersonDTO dto =  parseObject(entity, PersonDTO.class);

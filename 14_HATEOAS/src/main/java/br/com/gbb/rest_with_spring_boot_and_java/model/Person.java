@@ -3,6 +3,7 @@ package br.com.gbb.rest_with_spring_boot_and_java.model;
 import jakarta.persistence.*;
 
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
@@ -24,6 +25,9 @@ public class Person  implements Serializable {
 
     @Column(nullable = false, length = 6)
     private String gender;
+
+    @Column(name = "REGISTRATIONDATE", nullable = false, length = 6)
+    private LocalDateTime registrationDate;
 
     public Person() {}
 
@@ -63,14 +67,22 @@ public class Person  implements Serializable {
 
     public void setAddress(String address) { this.address = address; }
 
+    public LocalDateTime getRegistrationDate() {
+        return registrationDate;
+    }
+
+    public void setRegistrationDate(LocalDateTime registrationDate) {
+        this.registrationDate = registrationDate;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (!(o instanceof Person person)) return false;
-        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName()) && Objects.equals(getGender(), person.getGender()) && Objects.equals(getAddress(), person.getAddress());
+        return Objects.equals(getId(), person.getId()) && Objects.equals(getFirstName(), person.getFirstName()) && Objects.equals(getLastName(), person.getLastName()) && Objects.equals(getAddress(), person.getAddress()) && Objects.equals(getGender(), person.getGender()) && Objects.equals(getRegistrationDate(), person.getRegistrationDate());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), getFirstName(), getLastName(), getGender(), getAddress());
+        return Objects.hash(getId(), getFirstName(), getLastName(), getAddress(), getGender(), getRegistrationDate());
     }
 }
