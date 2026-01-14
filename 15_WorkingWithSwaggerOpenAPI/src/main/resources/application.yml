@@ -32,3 +32,8 @@ logging:
   level:
     #root: WARN   #difines the default log level for the entire application.
     br.com.gbb: DEBUG #Overrides the log level for a specific package (br.com.gbb) and its sub-packages.
+
+spring-doc:
+  path-to-match: /api/**/v1/**
+  swagger-ui:
+    use-root-path: true
