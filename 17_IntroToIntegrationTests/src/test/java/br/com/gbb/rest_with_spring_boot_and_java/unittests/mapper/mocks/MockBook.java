@@ -1,4 +1,4 @@
-package br.com.gbb.rest_with_spring_boot_and_java.unitetests.mapper.mocks;
+package br.com.gbb.rest_with_spring_boot_and_java.unittests.mapper.mocks;
 
 import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1.BookDTO;
 import br.com.gbb.rest_with_spring_boot_and_java.model.Book;
@@ -39,8 +39,8 @@ public class MockBook {
     
     public Book mockEntity(Integer number) {
         Book book = new Book();
-        book.setAuthor("Some Author Teste " + number);
-        book.setTitle(" Some Title Teste " + number);
+        book.setAuthor("Author Teste " + number);
+        book.setTitle("Title Teste " + number);
         book.setPrice(new BigDecimal(number/2).round(MathContext.DECIMAL32));
         book.setLaunchDate(LocalDate.of(2003,10,25));
         book.setId(number.longValue());
@@ -51,7 +51,7 @@ public class MockBook {
     public BookDTO mockDTO(Integer number) {
         BookDTO book = new BookDTO();
         book.setAuthor("Author Teste " + number);
-        book.setTitle("First Title Teste " + number);
+        book.setTitle("Title Teste " + number);
         book.setPrice(new BigDecimal(number/2).round(MathContext.DECIMAL32));
         book.setLaunchDate(LocalDate.of(2003,10,25));
         book.setId(number.longValue());

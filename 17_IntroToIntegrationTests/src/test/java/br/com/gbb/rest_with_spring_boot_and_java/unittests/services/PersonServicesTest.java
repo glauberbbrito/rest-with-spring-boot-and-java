@@ -1,10 +1,11 @@
-package br.com.gbb.rest_with_spring_boot_and_java.services;
+package br.com.gbb.rest_with_spring_boot_and_java.unittests.services;
 
 import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
 import br.com.gbb.rest_with_spring_boot_and_java.exception.RequiredObjectIsNullException;
 import br.com.gbb.rest_with_spring_boot_and_java.model.Person;
 import br.com.gbb.rest_with_spring_boot_and_java.repository.PersonRepository;
-import br.com.gbb.rest_with_spring_boot_and_java.unitetests.mapper.mocks.MockPerson;
+import br.com.gbb.rest_with_spring_boot_and_java.services.PersonServices;
+import br.com.gbb.rest_with_spring_boot_and_java.unittests.mapper.mocks.MockPerson;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -104,11 +105,11 @@ class PersonServicesTest {
         Person person = input.mockEntity(1);
 
         Person persisted = person;
-        persisted.setId(person.getId());
+        persisted.setId(1L);
 
         PersonDTO dto = input.mockDTO(1);
 
-        when(repository.save(person)).thenReturn(persisted);
+        when(repository.save(any(Person.class))).thenReturn(persisted);
 
         var result = service.create(dto);
 

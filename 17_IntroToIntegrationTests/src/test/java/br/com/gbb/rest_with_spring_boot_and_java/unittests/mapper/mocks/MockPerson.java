@@ -1,4 +1,4 @@
-package br.com.gbb.rest_with_spring_boot_and_java.unitetests.mapper.mocks;
+package br.com.gbb.rest_with_spring_boot_and_java.unittests.mapper.mocks;
 
 import br.com.gbb.rest_with_spring_boot_and_java.data.dto.v1.PersonDTO;
 import br.com.gbb.rest_with_spring_boot_and_java.model.Person;
