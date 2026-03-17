@@ -108,7 +108,7 @@ class PersonServicesTest {
 
         PersonDTO dto = input.mockDTO(1);
 
-        when(repository.save(person)).thenReturn(persisted);
+        when(repository.save(any(Person.class))).thenReturn(persisted);
 
         var result = service.create(dto);
 
