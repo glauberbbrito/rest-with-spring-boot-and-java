@@ -8,9 +8,7 @@ import org.springframework.test.context.ContextConfiguration;
 import org.testcontainers.containers.PostgreSQLContainer;
 import org.testcontainers.lifecycle.Startables;
 
-import java.lang.module.Configuration;
 import java.util.Map;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 @ContextConfiguration(initializers = AbstractIntegrationTest.Initializer.class)

@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+//@CrossOrigin(origins = {"http://localhost:8080","http://dev.api.com.br"}) só aceitará requisições dessas origens, considerando todos os métodos do controller
 @RestController
 @RequestMapping("/api/person/v1")
 @Tag(name = "People", description = "Endpoints for Managing People")
@@ -27,6 +28,8 @@ public class PersonalController implements PersonalControllerDocs {
         return service.findAll();
     }
 
+
+    //@CrossOrigin(origins = {"http://localhost:9090","http://dev2.api.com.br"}) só aceitará requisições dessas origens, considerando apenas este método
     @GetMapping(value = "/{id}", produces = {MediaType.APPLICATION_JSON_VALUE,
             MediaType.APPLICATION_XML_VALUE,
             MediaType.APPLICATION_YAML_VALUE})
